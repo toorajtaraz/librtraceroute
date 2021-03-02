@@ -12,7 +12,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-librtraceroute = "0.1.4"
+librtraceroute = "0.1.5"
 ```
 ## License
 
