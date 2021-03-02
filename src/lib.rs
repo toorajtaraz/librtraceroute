@@ -436,7 +436,9 @@ fn start_trace_route_on_v4(
                             }
                         }
                         _ => {
-                            tries -= 1;
+                            if tries > 0 {
+                                tries -= 1;
+                            }
                         }
                     },
                     _ => has_changed = false,
