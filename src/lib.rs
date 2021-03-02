@@ -1,4 +1,4 @@
-//! Fast trace routing library.
+//! Fast route tracing library.
 //!
 //! [`librtraceroute`]: https://github.com/toorajtaraz/librtraceroute
 extern crate pnet;
