@@ -76,10 +76,16 @@ impl TraceRoute {
         };
 
         if let Some(mt) = max_ttl {
+            if mt < 1 {
+               return Err(String::from("BAD MAX TTL")); 
+            }
             trace_route.max_ttl = mt;
         }
 
         if let Some(bt) = begin_ttl {
+            if bt > trace_route.max_ttl {
+               return Err(String::from("BAD START TTL")); 
+            }
             trace_route.begin_ttl = bt;
         }
 
@@ -92,10 +98,16 @@ impl TraceRoute {
         }
 
         if let Some(s) = size {
+            if s == 0 {
+               return Err(String::from("BAD SIZE")); 
+            }
             trace_route.size = s;
         }
 
         if let Some(to) = timeout {
+            if to == 0 {
+               return Err(String::from("BAD TIMEOUT")); 
+            }
             trace_route.timeout = to;
         }
 
@@ -635,8 +647,20 @@ fn icmpv6_checksum(packet: &MutableIcmpv6Packet) -> u16be {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+    fn creating_new_tracer() {
+        let (_, _) = TraceRoute::new(
+            Some(128), Some(12), None, None, None, None, IpAddr::from([127, 0, 0, 1]), None,
+        )
+        .unwrap();
+    }
+    #[test]
+    #[should_panic]
+    fn creating_bad_tracer() {
+        let (_, _) = TraceRoute::new(
+            None, Some(128), None, None, None, None, IpAddr::from([127, 0, 0, 1]), None,
+        )
+        .unwrap();
     }
 }
