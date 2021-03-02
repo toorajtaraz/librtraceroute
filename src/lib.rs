@@ -107,8 +107,8 @@ impl TraceRoute {
         }
 
         if let Some(s) = size {
-            if s == 0 {
-               return Err(String::from("BAD SIZE")); 
+            if s < 12 {
+               return Err(String::from("BAD SIZE - MIN=12")); 
             }
             trace_route.size = s;
         }
