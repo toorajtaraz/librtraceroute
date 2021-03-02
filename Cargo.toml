@@ -1,13 +1,13 @@
 [package]
 name = "librtraceroute"
-version = "0.1.3"
+version = "0.1.4"
 authors = ["tooraj taraz <tooraj.info@gmail.com>"]
 edition = "2018"
 description = "Fast Rust route tracing library"
 license = "GPL-3.0"
-license-file = "LICENSE"
 homepage = "https://github.com/toorajtaraz/librtraceroute/"
 repository = "https://github.com/toorajtaraz/librtraceroute/"
+documentation = "https://docs.rs/librping"
 readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
