@@ -1,0 +1,22 @@
+[package]
+name = "librtraceroute"
+version = "0.1.0"
+authors = ["tooraj taraz <tooraj.info@gmail.com>"]
+edition = "2018"
+description = "Fast Rust route tracing library"
+license-file = "LICENSE"
+homepage = "https://github.com/toorajtaraz/librtraceroute/"
+repository = "https://github.com/toorajtaraz/librtraceroute/"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.7"
+pnet = "0.27.2"
+pnet_macros_support = "0.27.2"
+pnet_packet = "0.27.2"
+pnet_sys = "0.27.2"
+libc = "0.2.39"
+ansi_term = "0.12"
+
