@@ -4,6 +4,7 @@ version = "0.1.2"
 authors = ["tooraj taraz <tooraj.info@gmail.com>"]
 edition = "2018"
 description = "Fast Rust route tracing library"
+license = "GPL-3.0"
 license-file = "LICENSE"
 homepage = "https://github.com/toorajtaraz/librtraceroute/"
 repository = "https://github.com/toorajtaraz/librtraceroute/"
