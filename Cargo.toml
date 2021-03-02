@@ -1,6 +1,6 @@
 [package]
 name = "librtraceroute"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["tooraj taraz <tooraj.info@gmail.com>"]
 edition = "2018"
 description = "Fast Rust route tracing library"
