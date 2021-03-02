@@ -1,3 +1,6 @@
+//! Fast trace routing library.
+//!
+//! [`librtraceroute`]: https://github.com/toorajtaraz/librtraceroute
 extern crate pnet;
 extern crate ansi_term;
 
@@ -22,12 +25,14 @@ use std::sync::mpsc::{channel, Receiver, Sender};
 use std::thread;
 use std::time::{Duration, Instant};
 
+/// This enum represents supported protocols for route tracing.
 #[derive(Copy, Clone)]
 pub enum TraceRouteProtocol {
     Icmp,
     Udp,
 }
 
+/// This struct stores all needed data for representing a hop.
 pub struct HopFound {
     pub addr: Option<IpAddr>,
     pub tries: u16,
@@ -36,8 +41,10 @@ pub struct HopFound {
     pub time: Option<Duration>,
 }
 
+/// This type is a Result consisting of TraceRoute struct and receiver handle.
 pub type TraceRouteRes = Result<(TraceRoute, Receiver<HopFound>), String>;
 
+/// This struct stores all needed data for performing route tracing task.
 pub struct TraceRoute {
     pub max_ttl: u8,
     pub max_tries: u16,
@@ -50,7 +57,9 @@ pub struct TraceRoute {
     pub protocol: TraceRouteProtocol,
 }
 
+/// This block implements TraceRoute struct.
 impl TraceRoute {
+    /// Creates new TraceRoute and returns TraceRouteRes.
     pub fn new(
         max_ttl: Option<u8>,
         begin_ttl: Option<u8>,
@@ -118,6 +127,7 @@ impl TraceRoute {
         Ok((trace_route, recieve_handle))
     }
 
+    /// This function executes route tracing.
     pub fn run_trace_route(&self) {
         if self.address.is_ipv4() {
             start_trace_route_on_v4(
